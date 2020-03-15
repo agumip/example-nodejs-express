@@ -28,7 +28,7 @@ jobs:
           name: "Build docker image and push to docker hub"
           command: |
             cp Dockerfile.production Dcokerfile
-            docker build -t agumip/example-nodejs-circle:lastest .
+            docker build -t agumip/example-nodejs-circle:latest .
             docker build -t agumip/example-nodejs-circle:${CIRCLE_SHA1} .
             docker push agumip/example-nodejs-circle:latest
             docker push agumip/example-nodejs-circle${CIRCLE_SHA1}
