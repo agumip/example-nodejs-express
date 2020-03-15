@@ -54,15 +54,15 @@ jobs:
         name: "Build docker image and push to docker hub"
         command: |
           if [ "${CIRCLE_BRANCH}" == "master" ]; then
-           cp Dockerfile.production Dcokerfile
-           docker build -t agumip/example-nodejs-circle:latest .
-           docker build -t agumip/example-nodejs-circle:${CIRCLE_SHA1} .
-           docker push agumip/example-nodejs-circle:latest
-           docker push agumip/example-nodejs-circle${CIRCLE_SHA1}
+            cp Dockerfile.production Dcokerfile
+            docker build -t agumip/example-nodejs-circle:latest .
+            docker build -t agumip/example-nodejs-circle:${CIRCLE_SHA1} .
+            docker push agumip/example-nodejs-circle:latest
+            docker push agumip/example-nodejs-circle${CIRCLE_SHA1}
           elif [ "${CIRCLE_BRANCH}" == "staging" ]; then
-           cp Dockerfile.staging Dcokerfile
-           docker build -t agumip/example-nodejs-staging:latest .
-           docker push agumip/example-nodejs-staging:latest
+            cp Dockerfile.staging Dcokerfile
+            docker build -t agumip/example-nodejs-staging:latest .
+            docker push agumip/example-nodejs-staging:latest
           else
             echo "This is ${CIRCLE_BRANCH}"
           fi
