@@ -17,10 +17,12 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
       - run: npm install
+      - run: npm start
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
+<<<<<<< HEAD
       - run: npm test
       - setup_remote_docker
       - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
@@ -33,3 +35,5 @@ jobs:
              docker push agumip/example-nodejs-circle:latest
              docker push agumip/example-nodejs-circle${CIRCLE_SHA1}
       - run: echo Done
+=======
+>>>>>>> a04d0fceacd054498dd521463fdafabf7f610489
